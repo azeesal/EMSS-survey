@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,133 +6,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMSS Member Feedback & Program Evaluation Survey</title>
     <style>
+        :root {
+            --bg-deep: #022c22;
+            --bg-card: rgba(6, 78, 59, 0.45);
+            --border-emerald: rgba(4, 120, 87, 0.6);
+            --emerald-glow: #10b981;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-green: #059669;
+            --accent-hover: #047857;
+        }
+
         body {
-            background-color: #022c22;
-            color: #f1f5f9;
-            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at top right, rgba(5, 150, 105, 0.15), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(2, 44, 34, 0.8), transparent 50%);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             min-height: 100vh;
             margin: 0;
             padding: 40px 16px;
+            box-sizing: border-box;
         }
+
         .container {
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto;
-            background: rgba(6, 78, 59, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(4, 120, 87, 0.5);
-            border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            padding: 32px;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-emerald);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 40px;
         }
+
         .header {
             text-align: center;
-            margin-bottom: 32px;
-            border-bottom: 1px solid rgba(4, 120, 87, 0.5);
+            margin-bottom: 36px;
+            border-bottom: 1px solid var(--border-emerald);
             padding-bottom: 24px;
         }
+
         .badge {
-            background-color: rgba(5, 150, 105, 0.3);
+            background: rgba(5, 150, 105, 0.25);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             color: #6ee7b7;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 14px;
             border-radius: 9999px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
+
         h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-top: 12px;
+            font-size: 1.85rem;
+            font-weight: 800;
+            margin-top: 16px;
             color: #ffffff;
             margin-bottom: 8px;
+            letter-spacing: -0.025em;
         }
+
         p.subtitle {
             color: #a7f3d0;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-style: italic;
             margin: 0;
+            line-height: 1.5;
         }
+
         .section-title {
-            font-size: 1.125rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: #6ee7b7;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid var(--emerald-glow);
             padding-left: 12px;
-            margin-bottom: 16px;
-            margin-top: 24px;
+            margin-bottom: 20px;
+            margin-top: 32px;
+            letter-spacing: -0.01em;
         }
+
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
+
         label {
             display: block;
             font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 6px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: #e2e8f0;
         }
+
         input, select, textarea {
             width: 100%;
-            background-color: rgba(2, 44, 34, 0.6);
+            background-color: rgba(2, 44, 34, 0.7);
             border: 1px solid #047857;
-            border-radius: 8px;
-            padding: 10px 14px;
+            border-radius: 10px;
+            padding: 12px 16px;
             color: #ffffff;
             font-size: 0.95rem;
             box-sizing: border-box;
             outline: none;
+            transition: all 0.2s ease;
         }
+
+        input:hover, select:hover, textarea:hover {
+            border-color: #059669;
+        }
+
         input:focus, select:focus, textarea:focus {
-            border-color: #10b981;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+            border-color: var(--emerald-glow);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+            background-color: rgba(2, 44, 34, 0.9);
         }
+
         textarea {
             resize: vertical;
+            min-height: 80px;
         }
+
+        select {
+            cursor: pointer;
+        }
+
         .card-block {
-            background-color: rgba(2, 44, 34, 0.3);
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(6, 78, 59, 0.6);
-            margin-bottom: 16px;
+            background-color: rgba(2, 44, 34, 0.35);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(6, 78, 59, 0.8);
+            margin-bottom: 20px;
+            transition: border-color 0.2s ease;
         }
+
+        .card-block:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
         button[type="submit"] {
             width: 100%;
-            background-color: #059669;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
             color: white;
-            font-weight: 600;
-            padding: 12px 24px;
+            font-weight: 700;
+            padding: 14px 24px;
             border-radius: 12px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.2s;
-            font-size: 1rem;
-            margin-top: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            margin-top: 32px;
+            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.3);
+            letter-spacing: 0.025em;
         }
+
         button[type="submit"]:hover {
-            background-color: #047857;
+            background: linear-gradient(135deg, #047857, #065f46);
+            box-shadow: 0 12px 20px -3px rgba(5, 150, 105, 0.4);
+            transform: translateY(-1px);
         }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
         button:disabled {
             opacity: 0.7;
             cursor: not-allowed;
+            transform: none !important;
         }
+
         #successCard {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 2px solid var(--emerald-glow);
+            color: var(--emerald-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 20px auto;
+        }
+
         #successCard h2 {
             color: #6ee7b7;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: 12px;
         }
+
         #successCard p {
             color: #cbd5e1;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 0 auto;
         }
+
         .hidden {
             display: none;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 8px;
+            }
+            .container {
+                padding: 20px;
+                border-radius: 14px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -147,8 +240,9 @@
 
         <!-- Success Message Card (Hidden initially) -->
         <div id="successCard" class="hidden">
-            <h2>Jazakallah Khair! </h2>
-            <p>Your response has been submitted successfully. Thank you for helping EMSS serve you better.</p>
+            <div class="success-icon">✓</div>
+            <h2>Jazakallah Khair!</h2>
+            <p>Your response has been submitted successfully. Thank you for taking the time to help EMSS serve you better.</p>
         </div>
 
         <!-- Form -->
@@ -159,12 +253,12 @@
             
             <div class="form-group">
                 <label>Full Name *</label>
-                <input type="text" name="fullName" required>
+                <input type="text" name="fullName" placeholder="Enter your full name" required>
             </div>
 
             <div class="form-group">
                 <label>Matric Number *</label>
-                <input type="text" name="matricNumber" required>
+                <input type="text" name="matricNumber" placeholder="e.g., 200/xxxxx" required>
             </div>
 
             <div class="form-group">
@@ -197,7 +291,7 @@
 
             <div class="form-group">
                 <label>Phone Number (WhatsApp) *</label>
-                <input type="tel" name="phoneNumber" required>
+                <input type="tel" name="phoneNumber" placeholder="e.g., 080xxxxxxxx" required>
             </div>
 
             <!-- Section 2: Program Evaluations -->
@@ -212,7 +306,7 @@
                     <option value="Partly">Partly</option>
                 </select>
                 <label>Thoughts & Feedback on Faculty Forum</label>
-                <textarea name="facultyForumFeedback" rows="2"></textarea>
+                <textarea name="facultyForumFeedback" placeholder="Share your experience or suggestions..."></textarea>
             </div>
 
             <!-- Mentorship -->
@@ -224,7 +318,7 @@
                     <option value="No">No</option>
                 </select>
                 <label>Thoughts & Feedback on Mentorship</label>
-                <textarea name="mentorshipFeedback" rows="2"></textarea>
+                <textarea name="mentorshipFeedback" placeholder="Share your experience or suggestions..."></textarea>
             </div>
 
             <!-- Ramadan Iftar -->
@@ -235,7 +329,7 @@
                     <option value="No">No</option>
                 </select>
                 <label>Thoughts & Feedback on Ramadan Iftar</label>
-                <textarea name="ramadanIftarFeedback" rows="2"></textarea>
+                <textarea name="ramadanIftarFeedback" placeholder="Share your experience or suggestions..."></textarea>
             </div>
 
             <!-- Engineering Muslimah Programme -->
@@ -247,7 +341,7 @@
                     <option value="Partly">Partly</option>
                 </select>
                 <label>Thoughts & Feedback on Engineering Muslimah Programme</label>
-                <textarea name="muslimahFeedback" rows="2"></textarea>
+                <textarea name="muslimahFeedback" placeholder="Share your experience or suggestions..."></textarea>
             </div>
 
             <!-- Friday Halqah Session -->
@@ -259,7 +353,7 @@
                     <option value="Rarely / Never">Rarely / Never</option>
                 </select>
                 <label>Thoughts & Feedback on Friday Halqah Session</label>
-                <textarea name="fridayHalqahFeedback" rows="2"></textarea>
+                <textarea name="fridayHalqahFeedback" placeholder="Share your experience or suggestions..."></textarea>
             </div>
 
             <div class="form-group">
@@ -278,17 +372,17 @@
             
             <div class="form-group">
                 <label>What new programs or initiatives would you like EMSS to organize?</label>
-                <textarea name="newInitiatives" rows="3" placeholder="e.g., Tech bootcamps, academic tutorials, halaqahs..."></textarea>
+                <textarea name="newInitiatives" placeholder="e.g., Tech bootcamps, academic tutorials, halaqahs..."></textarea>
             </div>
 
             <div class="form-group">
                 <label>What specific areas do you think EMSS needs to improve on?</label>
-                <textarea name="areasToImprove" rows="2"></textarea>
+                <textarea name="areasToImprove" placeholder="Your constructive feedback..."></textarea>
             </div>
 
             <div class="form-group">
                 <label>Other Comments or Recommendations (Optional)</label>
-                <textarea name="otherComments" rows="2"></textarea>
+                <textarea name="otherComments" placeholder="Any final words for the executive team?"></textarea>
             </div>
 
             <!-- Submit Button -->
@@ -304,7 +398,7 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             submitBtn.disabled = true;
-            submitBtn.textContent = "Submitting...";
+            submitBtn.textContent = "Submitting response...";
 
             fetch(scriptURL, { 
                 method: 'POST', 
