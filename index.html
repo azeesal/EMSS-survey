@@ -151,12 +151,12 @@
             
             <div class="form-group">
                 <label>Full Name *</label>
-                <input type="text" name="fullName" required placeholder="e.g., Abdullahi Muhammad">
+                <input type="text" name="fullName" required>
             </div>
 
             <div class="form-group">
                 <label>Matric Number *</label>
-                <input type="text" name="matricNumber" required placeholder="e.g., ENG2104521">
+                <input type="text" name="matricNumber" required>
             </div>
 
             <div class="form-group">
@@ -189,7 +189,7 @@
 
             <div class="form-group">
                 <label>Phone Number (WhatsApp) *</label>
-                <input type="tel" name="phoneNumber" required placeholder="e.g., 08031234567">
+                <input type="tel" name="phoneNumber" required>
             </div>
 
             <!-- Section 2: Program Evaluations -->
@@ -204,10 +204,10 @@
                     <option value="Partly">Partly</option>
                 </select>
                 <label>Thoughts & Feedback on Faculty Forum</label>
-                <textarea name="facultyForumFeedback" rows="2" placeholder="What did you think of the forum?"></textarea>
+                <textarea name="facultyForumFeedback" rows="2"></textarea>
             </div>
 
-            <!-- Mentorship Program -->
+            <!-- Mentorship -->
             <div class="card-block">
                 <label>Mentorship Program Participation</label>
                 <select name="mentorshipParticipation" style="margin-bottom: 12px;">
@@ -216,7 +216,7 @@
                     <option value="No">No</option>
                 </select>
                 <label>Thoughts & Feedback on Mentorship</label>
-                <textarea name="mentorshipFeedback" rows="2" placeholder="How has the mentor-mentee relationship been?"></textarea>
+                <textarea name="mentorshipFeedback" rows="2"></textarea>
             </div>
 
             <!-- Ramadan Iftar -->
@@ -227,7 +227,7 @@
                     <option value="No">No</option>
                 </select>
                 <label>Thoughts & Feedback on Ramadan Iftar</label>
-                <textarea name="ramadanIftarFeedback" rows="2" placeholder="Feedback on logistics, atmosphere, etc."></textarea>
+                <textarea name="ramadanIftarFeedback" rows="2"></textarea>
             </div>
 
             <!-- Engineering Muslimah Programme -->
@@ -239,7 +239,7 @@
                     <option value="Partly">Partly</option>
                 </select>
                 <label>Thoughts & Feedback on Engineering Muslimah Programme</label>
-                <textarea name="muslimahFeedback" rows="2" placeholder="Your feedback on this programme"></textarea>
+                <textarea name="muslimahFeedback" rows="2"></textarea>
             </div>
 
             <!-- Friday Halqah Session -->
@@ -251,7 +251,7 @@
                     <option value="Rarely / Never">Rarely / Never</option>
                 </select>
                 <label>Thoughts & Feedback on Friday Halqah Session</label>
-                <textarea name="fridayHalqahFeedback" rows="2" placeholder="Your feedback on the Friday halqahs"></textarea>
+                <textarea name="fridayHalqahFeedback" rows="2"></textarea>
             </div>
 
             <div class="form-group">
@@ -275,12 +275,12 @@
 
             <div class="form-group">
                 <label>What specific areas do you think EMSS needs to improve on?</label>
-                <textarea name="areasToImprove" rows="2" placeholder="Punctuality, publicity, welfare..."></textarea>
+                <textarea name="areasToImprove" rows="2"></textarea>
             </div>
 
             <div class="form-group">
                 <label>Other Comments or Recommendations (Optional)</label>
-                <textarea name="otherComments" rows="2" placeholder="Jazakumullahu khayran..."></textarea>
+                <textarea name="otherComments" rows="2"></textarea>
             </div>
 
             <!-- Submit Button -->
@@ -290,8 +290,7 @@
     </div>
 
     <script>
-        // REPLACE THE URL BELOW WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-        const scriptURL = https://script.google.com/u/0/home/projects/10f1q2Xruv9NVVIOMJ6lriM2mK76mqDccISqlkENGJ1gaDgMLV-VcqsbD/edit;
+        const scriptURL = https://script.google.com/macros/s/AKfycbwCapfggTU0TVKp6zUwNlPFzN4GVwNeJGjToRoslT8nuq_aSkTxdY6i2IMHVQgxTfxhUQ/exec;
         const form = document.getElementById('emssForm');
         const submitBtn = document.getElementById('submitBtn');
         const statusMsg = document.getElementById('statusMsg');
