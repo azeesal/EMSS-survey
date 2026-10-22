@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMSS Member Feedback & Program Evaluation Survey</title>
+    <style>
+        body {
+            background-color: #022c22;
+            color: #f1f5f9;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 16px;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(6, 78, 59, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(4, 120, 87, 0.5);
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            padding: 32px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(4, 120, 87, 0.5);
+            padding-bottom: 24px;
+        }
+        .badge {
+            background-color: rgba(5, 150, 105, 0.3);
+            color: #6ee7b7;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 12px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        p.subtitle {
+            color: #a7f3d0;
+            font-size: 0.875rem;
+            font-style: italic;
+            margin: 0;
+        }
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #6ee7b7;
+            border-left: 4px solid #10b981;
+            padding-left: 12px;
+            margin-bottom: 16px;
+            margin-top: 24px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #e2e8f0;
+        }
+        input, select, textarea {
+            width: 100%;
+            background-color: rgba(2, 44, 34, 0.6);
+            border: 1px solid #047857;
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+        }
+        textarea {
+            resize: vertical;
+        }
+        .card-block {
+            background-color: rgba(2, 44, 34, 0.3);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(6, 78, 59, 0.6);
+            margin-bottom: 16px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            background-color: #059669;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 1rem;
+            margin-top: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        button[type="submit"]:hover {
+            background-color: #047857;
+        }
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        #statusMsg {
+            text-align: center;
+            font-size: 0.875rem;
+            margin-top: 12px;
+        }
+        .hidden {
+            display: none;
+        }
+        .text-emerald {
+            color: #6ee7b7;
+        }
+        .text-red {
+            color: #f87171;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <span class="badge">Engineering Muslim Students Society</span>
+            <h1>Member Feedback & Program Evaluation</h1>
+            <p class="subtitle">Assalamu alaykum warahmatullahi wabarakatuh, dear member. Help us serve you better!</p>
+        </div>
+
+        <!-- Form -->
+        <form id="emssForm">
+            
+            <!-- Section 1: Personal Info -->
+            <div class="section-title" style="margin-top: 0;">1. Personal Information</div>
+            
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="fullName" required placeholder="e.g., Abdullahi Muhammad">
+            </div>
+
+            <div class="form-group">
+                <label>Matric Number *</label>
+                <input type="text" name="matricNumber" required placeholder="e.g., ENG2104521">
+            </div>
+
+            <div class="form-group">
+                <label>Department *</label>
+                <select name="department" required>
+                    <option value="">Select your department</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Electrical/Electronics Engineering">Electrical/Electronics Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Metallurgical and Materials Engineering">Metallurgical and Materials Engineering</option>
+                    <option value="Petroleum and Gas Engineering">Petroleum and Gas Engineering</option>
+                    <option value="Systems Engineering">Systems Engineering</option>
+                    <option value="Surveying and Geoinformatics">Surveying and Geoinformatics</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Level / Year of Study *</label>
+                <select name="level" required>
+                    <option value="">Select level</option>
+                    <option value="100 Level">100 Level</option>
+                    <option value="200 Level">200 Level</option>
+                    <option value="300 Level">300 Level</option>
+                    <option value="400 Level">400 Level</option>
+                    <option value="500 Level">500 Level</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number (WhatsApp) *</label>
+                <input type="tel" name="phoneNumber" required placeholder="e.g., 08031234567">
+            </div>
+
+            <!-- Section 2: Program Evaluations -->
+            <div class="section-title">2. Evaluation of Existing Programs</div>
+            
+            <!-- Faculty Forum -->
+            <div class="card-block">
+                <label>Faculty Forum Attendance</label>
+                <select name="facultyForumAttended" style="margin-bottom: 12px;">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Partly">Partly</option>
+                </select>
+                <label>Thoughts & Feedback on Faculty Forum</label>
+                <textarea name="facultyForumFeedback" rows="2" placeholder="What did you think of the forum?"></textarea>
+            </div>
+
+            <!-- Mentorship Program -->
+            <div class="card-block">
+                <label>Mentorship Program Participation</label>
+                <select name="mentorshipParticipation" style="margin-bottom: 12px;">
+                    <option value="Yes (Mentee)">Yes (As a Mentee)</option>
+                    <option value="Yes (Mentor)">Yes (As a Mentor)</option>
+                    <option value="No">No</option>
+                </select>
+                <label>Thoughts & Feedback on Mentorship</label>
+                <textarea name="mentorshipFeedback" rows="2" placeholder="How has the mentor-mentee relationship been?"></textarea>
+            </div>
+
+            <!-- Ramadan Iftar -->
+            <div class="card-block">
+                <label>Ramadan Iftar Participation</label>
+                <select name="ramadanIftarParticipation" style="margin-bottom: 12px;">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <label>Thoughts & Feedback on Ramadan Iftar</label>
+                <textarea name="ramadanIftarFeedback" rows="2" placeholder="Feedback on logistics, atmosphere, etc."></textarea>
+            </div>
+
+            <!-- Engineering Muslimah Programme -->
+            <div class="card-block">
+                <label>Engineering Muslimah Programme Participation</label>
+                <select name="muslimahParticipation" style="margin-bottom: 12px;">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Partly">Partly</option>
+                </select>
+                <label>Thoughts & Feedback on Engineering Muslimah Programme</label>
+                <textarea name="muslimahFeedback" rows="2" placeholder="Your feedback on this programme"></textarea>
+            </div>
+
+            <!-- Friday Halqah Session -->
+            <div class="card-block">
+                <label>Friday Halqah Session Attendance</label>
+                <select name="fridayHalqahAttendance" style="margin-bottom: 12px;">
+                    <option value="Regularly">Regularly</option>
+                    <option value="Occasionally">Occasionally</option>
+                    <option value="Rarely / Never">Rarely / Never</option>
+                </select>
+                <label>Thoughts & Feedback on Friday Halqah Session</label>
+                <textarea name="fridayHalqahFeedback" rows="2" placeholder="Your feedback on the Friday halqahs"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Overall Program Rating (1 to 5)</label>
+                <select name="overallRating">
+                    <option value="5 - Excellent">5 - Excellent</option>
+                    <option value="4 - Very Good">4 - Very Good</option>
+                    <option value="3 - Good">3 - Good</option>
+                    <option value="2 - Fair">2 - Fair</option>
+                    <option value="1 - Poor">1 - Poor</option>
+                </select>
+            </div>
+
+            <!-- Section 3: Future Programs & Improvements -->
+            <div class="section-title">3. Future Programs & Improvements</div>
+            
+            <div class="form-group">
+                <label>What new programs or initiatives would you like EMSS to organize?</label>
+                <textarea name="newInitiatives" rows="3" placeholder="e.g., Tech bootcamps, academic tutorials, halaqahs..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>What specific areas do you think EMSS needs to improve on?</label>
+                <textarea name="areasToImprove" rows="2" placeholder="Punctuality, publicity, welfare..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Other Comments or Recommendations (Optional)</label>
+                <textarea name="otherComments" rows="2" placeholder="Jazakumullahu khayran..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn">Submit Response</button>
+            <p id="statusMsg" class="hidden"></p>
+        </form>
+    </div>
+
+    <script>
+        // REPLACE THE URL BELOW WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+        const form = document.getElementById('emssForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+            statusMsg.className = "hidden text-emerald";
+            statusMsg.textContent = "Sending your response...";
+            statusMsg.classList.remove('hidden');
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Submit Response";
+                    statusMsg.className = "text-emerald";
+                    statusMsg.textContent = "Jazakallah Khair! Your response has been submitted successfully.";
+                    form.reset();
+                })
+                .catch(error => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Submit Response";
+                    statusMsg.className = "text-red";
+                    statusMsg.textContent = "Error submitting. Please check your internet connection and try again.";
+                });
+        });
+    </script>
+</body>
+</html>
