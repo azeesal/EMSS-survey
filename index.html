@@ -117,19 +117,21 @@
             opacity: 0.7;
             cursor: not-allowed;
         }
-        #statusMsg {
+        #successCard {
             text-align: center;
-            font-size: 0.875rem;
-            margin-top: 12px;
+            padding: 40px 20px;
+        }
+        #successCard h2 {
+            color: #6ee7b7;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        #successCard p {
+            color: #cbd5e1;
+            font-size: 1rem;
         }
         .hidden {
             display: none;
-        }
-        .text-emerald {
-            color: #6ee7b7;
-        }
-        .text-red {
-            color: #f87171;
         }
     </style>
 </head>
@@ -143,8 +145,14 @@
             <p class="subtitle">Assalamu alaykum warahmatullahi wabarakatuh, dear member. Help us serve you better!</p>
         </div>
 
+        <!-- Success Message Card (Hidden initially) -->
+        <div id="successCard" class="hidden">
+            <h2>Jazakallah Khair! </h2>
+            <p>Your response has been submitted successfully. Thank you for helping EMSS serve you better.</p>
+        </div>
+
         <!-- Form -->
-        <form id="emssForm">
+        <form id="emssForm" action="https://script.google.com/macros/s/AKfycbwCapfggTU0TVKp6zUwNlPFzN4GVwNeJGjToRoslT8nuq_aSkTxdY6i2IMHVQgxTfxhUQ/exec" method="POST" target="hidden_iframe">
             
             <!-- Section 1: Personal Info -->
             <div class="section-title" style="margin-top: 0;">1. Personal Information</div>
@@ -285,38 +293,18 @@
 
             <!-- Submit Button -->
             <button type="submit" id="submitBtn">Submit Response</button>
-            <p id="statusMsg" class="hidden"></p>
         </form>
     </div>
 
+    <!-- Hidden Iframe to handle seamless submission without CORS errors -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(isSubmitted) { document.getElementById('emssForm').style.display='none'; document.getElementById('successCard').classList.remove('hidden'); }"></iframe>
+
     <script>
-        const scriptURL = https://script.google.com/macros/s/AKfycbwSTbtS0Dpb2PFoafj_CslOAWAdbf1ZEm0icdIg2X0BKIQc2ncfPixUm6H4SJl83PvOoA/exec;
-        const form = document.getElementById('emssForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const statusMsg = document.getElementById('statusMsg');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Submitting...";
-            statusMsg.className = "hidden text-emerald";
-            statusMsg.textContent = "Sending your response...";
-            statusMsg.classList.remove('hidden');
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "Submit Response";
-                    statusMsg.className = "text-emerald";
-                    statusMsg.textContent = "Jazakallah Khair! Your response has been submitted successfully.";
-                    form.reset();
-                })
-                .catch(error => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "Submit Response";
-                    statusMsg.className = "text-red";
-                    statusMsg.textContent = "Error submitting. Please check your internet connection and try again.";
-                });
+        let isSubmitted = false;
+        document.getElementById('emssForm').addEventListener('submit', function() {
+            isSubmitted = true;
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').textContent = "Submitting...";
         });
     </script>
 </body>
